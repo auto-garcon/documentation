@@ -4,7 +4,7 @@ Auto-Garcon Documentation Repository and Manager Notes
 ## Instructions to Complete Manager Notes
 * Download the texfile. 
   * with wget: `wget https://raw.githubusercontent.com/auto-garcon/documentation/master/managerNotes.tex`
-  * or clone the repo to your computer. 
+  * or clone the repo
   * or if using overleaf, you can copy the raw content into a new project. 
 * Use your favorite latex editor, edit the template and fill out the questions the best you can, then compile into a pdf. 
 * If you don't know how, here are some suggestions. 
@@ -14,7 +14,7 @@ Auto-Garcon Documentation Repository and Manager Notes
   * Compile with Overleaf.com
     * Compress the .tex file, and upload it to overleaf as a new project. 
     * Once done editing compile, and download the pdf. 
-  * Compile with TeXworks (OSS 434 lab computers has this). 
+  * Compile with TeXworks (OSS 434 lab computers have this). 
     * File -> Open -> select managerNotes.tex
     * Dropdown next to play button, Select pdflatex
     * Hit the play button to compile your latex. 
