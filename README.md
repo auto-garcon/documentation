@@ -19,3 +19,6 @@ Auto-Garcon Documentation Repository and Manager Notes
     * Dropdown next to play button, Select pdflatex
     * Hit the play button to compile your latex. 
 * Email the resulting PDF to Dr. Sawin.
+
+## Contributing? 
+ Submit a pull request. See a tutorial [here](https://zachmsorenson.github.io/tutorials/github)
