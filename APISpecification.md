@@ -16,16 +16,16 @@ Various data structures and enums that will be used commonly in the API. Enums a
   
 MenuType = { Dinner, Breakfast, Brunch, Breakfast, Lunch, Drink }  
 OrderStatus = { Open, Closed }  
-MenuStatus = { Draft, Active, Deleted\* }  
+MenuStatus = { Draft, Active, Deleted \* }  
 Category = Any User Defined String  
   
 * _MenuItem_
   * category : Category
   * name : text 
   * description : text 
-  * [image] : bytes * 
+  * [image] : bytes \* 
   * allergens : text 
-  * [spice] : text* 
+  * [spice] : text \* 
   * price : float
 
 * _Menu_  
