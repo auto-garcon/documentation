@@ -12,13 +12,13 @@ The base URL to send requests to is: [TBD].
 The API accepts GET and POST requests. POST parameters are to be in JSON format. GET requests will be used for retreiving data (reading) and POST for creating, updating, and removing data.  
 
 ## Data Structures 
-Various data structures and enums that will be used commonly in the API. Enums are denoted by curly braces, and optional arguments are surrounded in brackets. Anything followed by an astrerix indicates it is likely to change. Time is writen in 24 hour time (i.e Midnight = 2400). Types are denoted after the variable name and a colon. 
-
-* MenuType = { Dinner, Breakfast, Brunch, Breakfast, Lunch, Drink }
-* OrderStatus = { Open, Closed }
-* MenuStatus = { Draft, Active, Deleted*}
-* Category = Any User Defined String 
-
+Various data structures and enums that will be used commonly in the API. Enums are denoted by curly braces, and optional arguments are surrounded in brackets. Anything followed by an astrerix indicates it is likely to change. Time is writen in 24 hour time (i.e Midnight = 2400). Types are denoted after the variable name and a colon.  
+  
+MenuType = { Dinner, Breakfast, Brunch, Breakfast, Lunch, Drink }  
+OrderStatus = { Open, Closed }  
+MenuStatus = { Draft, Active, Deleted\* }  
+Category = Any User Defined String  
+  
 * _MenuItem_
   * category : Category
   * name : text 
@@ -29,25 +29,24 @@ Various data structures and enums that will be used commonly in the API. Enums a
   * price : float
 
 * _Menu_  
- * menuID : int
- * satus: MenuStatus
- * type : MenuType 
- * timeRange[] 
-   * start : int 
-   * stop : int 
- * numItems : int 
- * items[] : MenuItems 
+  * menuID : int
+  * satus: MenuStatus
+  * type : MenuType 
+  * timeRange[] 
+    * start : int 
+    * stop : int 
+  * numItems : int 
+  * items[] : MenuItems 
 
-  
 * _Order_
- * orderID : int 
- * resturantID : int 
- * numMenuItems : int 
- * items[] : MenuItem[]
- * chargeAmmount : float
- * customerName : string
- * [customizations] : text
- * status : OrderStatus
+  * orderID : int 
+  * resturantID : int 
+  * numMenuItems : int 
+  * items[] : MenuItem[]
+  * chargeAmmount : float
+  * customerName : string
+  * [customizations] : text
+  * status : OrderStatus
 
 ## Endopints 
 
@@ -73,11 +72,11 @@ The documentation follows this style:
    * GET /users/:userid/favorites
      * ?resturantid=int 
      * Response: 
-      * numResturants
-      * resturants[] 
-        * resturantID
-        * resturantName
-        * favorites: Items[] 
+       * numResturants
+       * resturants[] 
+         * resturantID
+         * resturantName
+         * favorites: Items[] 
    * GET /users/:userid/orders
       * ?range=int
       * Response: Order Structure
@@ -105,7 +104,7 @@ The documentation follows this style:
   * GET /restaurant/:restaurantid/menu
   	* ?type=MenuType
     * Response: 
-       * Menu
+       * menu : Menu
   * GET /restaurant/:restaurantid/tables
   * POST /restaurant/sitdown
     * QRcode : bytes 
@@ -123,14 +122,14 @@ The documentation follows this style:
   * POST /restaurant/:restaurantid/menu/remove
      * Request: menuID
   * POST /restaurant/:restaurantid/orders/sumbit
-   *  Request
-  	 * customerID
-     * chargeAmount
-     * tableID
-     * items : MenuItems[] 
-     * customizations : text
+    * Request:
+      * customerID
+      * chargeAmount
+      * tableID
+      * items : MenuItems[] 
+      * customizations : text
     * Response: 
-     * orderID 
+      * orderID 
   * POST /restaurant/:restaurantid/orders/complete
      * orderID
      
