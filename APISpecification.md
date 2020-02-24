@@ -30,7 +30,7 @@ Category = Any User Defined String
 
 * _Menu_  
   * menuID : int
-  * satus: MenuStatus
+  * status: MenuStatus
   * type : MenuType 
   * timeRange[] 
     * start : int 
@@ -48,7 +48,7 @@ Category = Any User Defined String
   * [customizations] : text
   * status : OrderStatus
 
-## Endopints 
+## Endpoints 
 
 This section details the various endpoints available on the API. All characters in the URL will be lowercase. A part of a route that is lead by a colon indicates a parameter in the URL. So /users/:userid will look like /users/12314. Feilds with no data type specifed are inferred. All endpoints will respond with a HTTP status code and any specifed JSON response. 
   
