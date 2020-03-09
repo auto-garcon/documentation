@@ -89,14 +89,18 @@ The documentation follows this style:
        * email
      * Response: 
        *  userID
-     
-      
 * /restaurant   
   * GET /restaurant/:restaurantid
     * Response:  
       * resturantID
       * resturantName
       * resturantAddress
+      * availableMenuTypes: MenuType[]
+  * GET /restaurant/random
+    * Response: 
+      * restaurantID
+      * restaurantName
+      * restaurantAddress
       * availableMenuTypes: MenuType[]
   * GET /restaurant/:restaurantid/orders
     * ?status=[open, closed, all]
@@ -108,9 +112,10 @@ The documentation follows this style:
     * Response: 
        * menu : Menu
   * GET /restaurant/:restaurantid/tables
-  * POST /restaurant/sitdown
-    * QRcode : bytes 
-    * Used to identify what restaurant and table the user is at.
+    * Response: 
+      * numTables
+      * tableIDs: int[]
+  * POST /restaurant/:restaurantid/table/:tableID/sitdown
     * Response: 
       * restaurantID
       * restaurantName
@@ -134,16 +139,8 @@ The documentation follows this style:
       * orderID 
   * POST /restaurant/:restaurantid/orders/complete
      * orderID
-     
-     
-    
 
-Notes:
------
-Android Will work on menu stuff first
-Stripe integration will need parameters added to some endpoints. 
 
-Database team will use auto-incrementing unique IDs for items, restaurants and users
-
-How will database handle images? 
-Stored bytes directly? Third party service and just store links? 
+Notes 
+--------
+possible upcoming change to how menuItem's images are uploaded to the API.
