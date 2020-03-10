@@ -28,7 +28,7 @@ Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } `
   * allergens : text 
   * [spice] : text \* 
   * price : float
-  * allergens:  Allergen 
+  * allergens:  Allergen[] 
 
 * _Menu_  
   * menuID : int
