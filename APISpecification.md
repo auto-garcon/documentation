@@ -20,33 +20,61 @@ MenuStatus = { Draft, Active, Deleted \* }
 Category = Any User Defined String  
   
 * _MenuItem_
-  * category : Category
-  * name : text 
-  * description : text 
-  * [image] : bytes \* 
-  * allergens : text 
-  * [spice] : text \* 
-  * price : float
+  * itemID : int
+  * itemName : text
+  * description : text
+  * status : bit
+  * calories : int
+  * category : string
+  * gluten : bit
+  * meat : bit
+  * dairy : bit
+  * nuts : bit
+  * soy : bit
 
 * _Menu_  
   * menuID : int
-  * status: MenuStatus
-  * type : MenuType 
-  * timeRange[] 
-    * start : int 
-    * stop : int 
-  * numItems : int 
-  * items[] : MenuItems 
+  * startTime : int (ex. 1200)
+  * endTime : int (ex. 1300)
+  * menuStatus : int
+  * menuName : string
+  * restaurantID : int
+  * menuImage : text
+  * type : string
 
 * _Order_
   * orderID : int 
+  * tableID : int
+  * orderTime : dateTime
+  * status : string
+  * chargeAmount : float int
   * resturantID : int 
-  * numMenuItems : int 
-  * items[] : MenuItem[]
-  * chargeAmmount : float
   * customerName : string
-  * [customizations] : text
-  * status : OrderStatus
+  * alexaStatus : bit
+  
+* _Restaurant_
+  * restaurantID : int
+  * restaurantName : string
+  * description : text
+  * address : text
+  * salesTax : float int
+  * city : string
+  * state : string
+  * zipCode : string
+  * country : string
+  
+* _OrderItem_
+  * orderItemID : int
+  * menuItemID : int
+  * quantity : int
+  * comments : text
+  * orderID : int
+  
+* _MenuItem_
+  * menuID : int
+  * menuItemID : int
+  * price : double int
+  
 
 ## Endpoints 
 
