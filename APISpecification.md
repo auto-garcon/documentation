@@ -44,7 +44,7 @@ Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } `
   * orderID : int 
   * resturantID : int 
   * numMenuItems : int 
-  * items[] : MenuItem[]
+  * OrderItem[] : {MenuItem, noteToChef: text, addons[MenuItem]}
   * chargeAmmount : float
   * customerName : string
   * [customizations] : text
@@ -128,7 +128,7 @@ The documentation follows this style:
       * customerID
       * chargeAmount
       * tableID
-      * items : MenuItems[] 
+      * OrderItem[] : {MenuItem, noteToChef: text, addons[MenuItem]}
       * customizations : text
     * Response: 
       * orderID 
