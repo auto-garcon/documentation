@@ -70,7 +70,7 @@ Category = Any User Defined String
   * comments : text
   * orderID : int
   
-* _MenuItem_
+* _MenuContains_
   * menuID : int
   * menuItemID : int
   * price : double int
