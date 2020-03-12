@@ -18,6 +18,7 @@ MenuType = { Dinner, Breakfast, Brunch, Breakfast, Lunch, Drink }
 OrderStatus = { Open, Closed }  
 MenuStatus = { Draft, Active, Deleted \* }  
 Category = Any User Defined String  
+Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } `
   
 * _MenuItem_
   * itemID : int
