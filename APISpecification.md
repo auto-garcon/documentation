@@ -16,42 +16,40 @@ Various data structures and enums that will be used commonly in the API. Enums a
   
 OrderStatus = { Open, Closed }  
 MenuStatus = { Draft, Active }  
+OrderStatus = { Completed,  InProgress } 
 Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } `
 Category = Any User Defined Category Name.  
 MenuName = User Defined MenuName. 
   
 * _MenuItem_
-  * category : Category
-  * name : text 
-  * description : text 
-  * [image] : bytes \* 
-  * allergens : text 
-  * [spice] : text \* 
-  * price : float
-  * allergens:  Allergen[] 
+  * itemID : int
+  * itemName : string 
+  * description : string 
+  * category : string
+  * allergens: Allergen[]
+
 
 * _Menu_  
   * menuID : int
-  * status: MenuStatus
-  * type : MenuType 
-  * timeRange[] 
-    * start : int 
-    * stop : int 
-  * numItems : int 
-  * items[] : MenuItems 
+  * startTime : int 
+  * endTime : int 
+  * menuStatus : int
+  * menuName : string
+  * restaurantID : int
 
 * _Order_
   * orderID : int 
+  * tableID : int
+  * customerID: int 
+  * orderTime : dateTime
+  * status : OrderStatus 
+  * chargeAmount : float 
   * resturantID : int 
   * numMenuItems : int 
   * OrderItem[] : 
-    * menuItem: MenuItem, 
+    * menuItemID: MenuItemID, 
     * notes: text
-  * chargeAmmount : float
-  * customerName : string
-  * [customizations] : text
-  * status : OrderStatus
-
+  
 ## Endpoints 
 
 This section details the various endpoints available on the API. All characters in the URL will be lowercase. A part of a route that is lead by a colon indicates a parameter in the URL. So /users/:userid will look like /users/12314. Feilds with no data type specifed are inferred. All endpoints will respond with a HTTP status code and any specifed JSON response. 
