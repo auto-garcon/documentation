@@ -28,7 +28,7 @@ Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } `
   * allergens : text 
   * [spice] : text \* 
   * price : float
-  * allergens:  Allergen 
+  * allergens:  Allergen[] 
 
 * _Menu_  
   * menuID : int
@@ -44,7 +44,7 @@ Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } `
   * orderID : int 
   * resturantID : int 
   * numMenuItems : int 
-  * items[] : MenuItem[]
+  * OrderItem[] : {MenuItem, noteToChef: text}
   * chargeAmmount : float
   * customerName : string
   * [customizations] : text
@@ -133,7 +133,7 @@ The documentation follows this style:
       * customerID
       * chargeAmount
       * tableID
-      * items : MenuItems[] 
+      * OrderItem[] : {MenuItem, noteToChef: text}
       * customizations : text
     * Response: 
       * orderID 
