@@ -37,7 +37,7 @@ MenuName = User Defined MenuName.
   * menuStatus : int
   * menuName : string
   * restaurantID : int
-  * menuItems: MenuItems
+  * menuItems: MenuItems[]
 
 * _Order_
   * orderID : int 
