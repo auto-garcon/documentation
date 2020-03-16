@@ -21,61 +21,34 @@ Category = Any User Defined String
 Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } `
   
 * _MenuItem_
-  * itemID : int
-  * itemName : text
-  * description : text
-  * status : bit
-  * calories : int
-  * category : string
-  * gluten : bit
-  * meat : bit
-  * dairy : bit
-  * nuts : bit
-  * soy : bit
+  * category : Category
+  * name : text 
+  * description : text 
+  * [image] : bytes \* 
+  * allergens : text 
+  * [spice] : text \* 
+  * price : float
+  * allergens:  Allergen[] 
 
 * _Menu_  
   * menuID : int
-  * startTime : int (ex. 1200)
-  * endTime : int (ex. 1300)
-  * menuStatus : int
-  * menuName : string
-  * restaurantID : int
-  * menuImage : text
-  * type : string
+  * status: MenuStatus
+  * type : MenuType 
+  * timeRange[] 
+    * start : int 
+    * stop : int 
+  * numItems : int 
+  * items[] : MenuItems 
 
 * _Order_
   * orderID : int 
-  * tableID : int
-  * orderTime : dateTime
-  * status : string
-  * chargeAmount : float int
   * resturantID : int 
+  * numMenuItems : int 
+  * items[] : MenuItem[]
+  * chargeAmmount : float
   * customerName : string
-  * alexaStatus : bit
-  
-* _Restaurant_
-  * restaurantID : int
-  * restaurantName : string
-  * description : text
-  * address : text
-  * salesTax : float int
-  * city : string
-  * state : string
-  * zipCode : string
-  * country : string
-  
-* _OrderItem_
-  * orderItemID : int
-  * menuItemID : int
-  * quantity : int
-  * comments : text
-  * orderID : int
-  
-* _MenuContains_
-  * menuID : int
-  * menuItemID : int
-  * price : double int
-  
+  * [customizations] : text
+  * status : OrderStatus
 
 ## Endpoints 
 
