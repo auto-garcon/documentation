@@ -14,11 +14,11 @@ The API accepts GET and POST requests. POST parameters are to be in JSON format.
 ## Data Structures 
 Various data structures and enums that will be used commonly in the API. Enums are denoted by curly braces, and optional arguments are surrounded in brackets. Anything followed by an astrerix indicates it is likely to change. Time is writen in 24 hour time (i.e Midnight = 2400). Types are denoted after the variable name and a colon.  
   
-MenuType = { Dinner, Breakfast, Brunch, Breakfast, Lunch, Drink }  
 OrderStatus = { Open, Closed }  
-MenuStatus = { Draft, Active, Deleted \* }  
-Category = Any User Defined String  
+MenuStatus = { Draft, Active }  
 Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } `
+Category = Any User Defined Category Name.  
+MenuName = User Defined MenuName. 
   
 * _MenuItem_
   * category : Category
@@ -44,7 +44,9 @@ Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } `
   * orderID : int 
   * resturantID : int 
   * numMenuItems : int 
-  * OrderItem[] : {MenuItem, noteToChef: text}
+  * OrderItem[] : 
+    * menuItem: MenuItem, 
+    * notes: text
   * chargeAmmount : float
   * customerName : string
   * [customizations] : text
@@ -95,20 +97,20 @@ The documentation follows this style:
       * resturantID
       * resturantName
       * resturantAddress
-      * availableMenuTypes: MenuType[]
+      * availableMenus[]
   * GET /restaurant/random
     * Response: 
       * restaurantID
       * restaurantName
       * restaurantAddress
-      * availableMenuTypes: MenuType[]
+      * availableMenus[]
   * GET /restaurant/:restaurantid/orders
     * ?status=[open, closed, all]
     * ?userid=int
     * Response:
       * Orders: OrderStructure[]
   * GET /restaurant/:restaurantid/menu
-  	* ?type=MenuType
+  	* ?name=MenuName
     * Response: 
        * menu : Menu
   * GET /restaurant/:restaurantid/tables
@@ -128,19 +130,29 @@ The documentation follows this style:
       * menuID
   * POST /restaurant/:restaurantid/menu/remove
      * Request: menuID
-  * POST /restaurant/:restaurantid/orders/sumbit
+  * POST /restaurant/:restaurantid/order/new
+    * Request: 
+      * customerID
+      * tableID
+    * Response: orderID
+    * Note: Creates a new orderID to start building a new order. 
+  * POST /restaurant/:restaurantid/order/:orderid/add
+    * Request: 
+      * OrderItem: 
+        * menuItemID  
+        * notes: text  
+  * POST /restaurant/:restaurantid/order/:orderid/submit
+   * Note: Just http status code response.  
+  * POST /restaurant/:restaurantid/order/sumbit
     * Request:
       * customerID
       * chargeAmount
       * tableID
-      * OrderItem[] : {MenuItem, noteToChef: text}
-      * customizations : text
+      * OrderItem[]
+        * menuItemID
+        * notes: text
     * Response: 
       * orderID 
-  * POST /restaurant/:restaurantid/orders/complete
+  * POST /restaurant/:restaurantid/order/complete
      * orderID
-
-
-Notes 
---------
-possible upcoming change to how menuItem's images are uploaded to the API.
+     * Note: mark an order as completed / ready for pickup. 
