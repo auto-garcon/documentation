@@ -14,42 +14,42 @@ The API accepts GET and POST requests. POST parameters are to be in JSON format.
 ## Data Structures 
 Various data structures and enums that will be used commonly in the API. Enums are denoted by curly braces, and optional arguments are surrounded in brackets. Anything followed by an astrerix indicates it is likely to change. Time is writen in 24 hour time (i.e Midnight = 2400). Types are denoted after the variable name and a colon.  
   
-MenuType = { Dinner, Breakfast, Brunch, Breakfast, Lunch, Drink }  
 OrderStatus = { Open, Closed }  
-MenuStatus = { Draft, Active, Deleted \* }  
-Category = Any User Defined String  
-Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } `
-  
+MenuStatus = { Draft, Active }  
+OrderStatus = { Completed,  InProgress }  
+Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } 
+Category = Any User Defined Category Name.  
+MenuName = User Defined MenuName.  
+   
 * _MenuItem_
-  * category : Category
-  * name : text 
-  * description : text 
-  * [image] : bytes \* 
-  * allergens : text 
-  * [spice] : text \* 
-  * price : float
-  * allergens:  Allergen[] 
+  * itemID : int
+  * itemName : string 
+  * description : string 
+  * category : string
+  * allergens: Allergen[]
+
 
 * _Menu_  
   * menuID : int
-  * status: MenuStatus
-  * type : MenuType 
-  * timeRange[] 
-    * start : int 
-    * stop : int 
-  * numItems : int 
-  * items[] : MenuItems 
+  * startTime : int 
+  * endTime : int 
+  * menuStatus : int
+  * menuName : string
+  * restaurantID : int
 
 * _Order_
   * orderID : int 
+  * tableID : int
+  * customerID: int 
+  * orderTime : dateTime
+  * status : OrderStatus 
+  * chargeAmount : float 
   * resturantID : int 
   * numMenuItems : int 
-  * items[] : MenuItem[]
-  * chargeAmmount : float
-  * customerName : string
-  * [customizations] : text
-  * status : OrderStatus
-
+  * OrderItem[] : 
+    * menuItemID : int  
+    * notes: text
+  
 ## Endpoints 
 
 This section details the various endpoints available on the API. All characters in the URL will be lowercase. A part of a route that is lead by a colon indicates a parameter in the URL. So /users/:userid will look like /users/12314. Feilds with no data type specifed are inferred. All endpoints will respond with a HTTP status code and any specifed JSON response. 
@@ -89,28 +89,33 @@ The documentation follows this style:
        * email
      * Response: 
        *  userID
-     
-      
 * /restaurant   
   * GET /restaurant/:restaurantid
     * Response:  
       * resturantID
       * resturantName
       * resturantAddress
-      * availableMenuTypes: MenuType[]
+      * availableMenus[]
+  * GET /restaurant/random
+    * Response: 
+      * restaurantID
+      * restaurantName
+      * restaurantAddress
+      * availableMenus[]
   * GET /restaurant/:restaurantid/orders
     * ?status=[open, closed, all]
     * ?userid=int
     * Response:
       * Orders: OrderStructure[]
   * GET /restaurant/:restaurantid/menu
-  	* ?type=MenuType
+  	* ?name=MenuName
     * Response: 
        * menu : Menu
   * GET /restaurant/:restaurantid/tables
-  * POST /restaurant/sitdown
-    * QRcode : bytes 
-    * Used to identify what restaurant and table the user is at.
+    * Response: 
+      * numTables
+      * tableIDs: int[]
+  * POST /restaurant/:restaurantid/table/:tableID/sitdown
     * Response: 
       * restaurantID
       * restaurantName
@@ -123,27 +128,29 @@ The documentation follows this style:
       * menuID
   * POST /restaurant/:restaurantid/menu/remove
      * Request: menuID
-  * POST /restaurant/:restaurantid/orders/sumbit
+  * POST /restaurant/:restaurantid/order/new
+    * Request: 
+      * customerID
+      * tableID
+    * Response: orderID
+    * Note: Creates a new orderID to start building a new order. 
+  * POST /restaurant/:restaurantid/order/:orderid/add
+    * Request: 
+      * OrderItem: 
+        * menuItemID  
+        * notes: text  
+  * POST /restaurant/:restaurantid/order/:orderid/submit
+   * Note: Just http status code response.  
+  * POST /restaurant/:restaurantid/order/sumbit
     * Request:
       * customerID
       * chargeAmount
       * tableID
-      * items : MenuItems[] 
-      * customizations : text
+      * OrderItem[]
+        * menuItemID
+        * notes: text
     * Response: 
       * orderID 
-  * POST /restaurant/:restaurantid/orders/complete
+  * POST /restaurant/:restaurantid/order/complete
      * orderID
-     
-     
-    
-
-Notes:
------
-Android Will work on menu stuff first
-Stripe integration will need parameters added to some endpoints. 
-
-Database team will use auto-incrementing unique IDs for items, restaurants and users
-
-How will database handle images? 
-Stored bytes directly? Third party service and just store links? 
+     * Note: mark an order as completed / ready for pickup. 
