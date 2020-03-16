@@ -31,12 +31,13 @@ MenuName = User Defined MenuName.
 
 * _Menu_  
   * menuID : int
-  * timeRanges[]: 
+  * timeRanges: []  
     * startTime : int 
     * endTime : int 
   * menuStatus : int
   * menuName : string
   * restaurantID : int
+  * menuItems: MenuItems
 
 * _Order_
   * orderID : int 
