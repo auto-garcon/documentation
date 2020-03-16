@@ -16,11 +16,11 @@ Various data structures and enums that will be used commonly in the API. Enums a
   
 OrderStatus = { Open, Closed }  
 MenuStatus = { Draft, Active }  
-OrderStatus = { Completed,  InProgress } 
-Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } `
+OrderStatus = { Completed,  InProgress }  
+Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other } 
 Category = Any User Defined Category Name.  
-MenuName = User Defined MenuName. 
-  
+MenuName = User Defined MenuName.  
+   
 * _MenuItem_
   * itemID : int
   * itemName : string 
@@ -47,7 +47,7 @@ MenuName = User Defined MenuName.
   * resturantID : int 
   * numMenuItems : int 
   * OrderItem[] : 
-    * menuItemID: MenuItemID, 
+    * menuItemID : int  
     * notes: text
   
 ## Endpoints 
