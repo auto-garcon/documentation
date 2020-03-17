@@ -18,7 +18,7 @@ Auto-Garcon Documentation Repository and Manager Notes
     * File -> Open -> select managerNotes.tex
     * Dropdown next to play button, Select pdflatex
     * Hit the play button to compile your latex. 
-* Email the resulting PDF to Dr. Sawin.
+* Email the resulting PDF to Dr. Sawin, and bring a print out to class. 
 
 ## Contributing? 
  Submit a pull request. See a tutorial [here](https://zachmsorenson.github.io/tutorials/github)
