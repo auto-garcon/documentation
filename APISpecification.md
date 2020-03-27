@@ -14,10 +14,10 @@ The API accepts GET and POST requests. POST parameters are to be in JSON format.
 ## Data Structures 
 Various data structures and enums that will be used commonly in the API. Enums are denoted by curly braces, and optional arguments are surrounded in brackets. Anything followed by an astrerix indicates it is likely to change. Time is writen in 24 hour time (i.e Midnight = 2400). Types are denoted after the variable name and a colon.  
   
-OrderStatus = { Open, Closed }  
-MenuStatus = { Draft, Active }  
-OrderStatus = { Completed,  InProgress }  
-Allergens = { Meat, Diary, Nuts, Gluten, Nuts, Soy, Other }  
+OrderStatus = { OPEN, CLOSED }  
+MenuStatus = { DRAFT, ACTIVE }  
+OrderStatus = { COMPLETED, INPROGRESS }  
+Allergens = { MEAT, DIARY, NUTS, GLUTEN, NUTS, SOY, OTHER }  
 Category = Any User Defined Category Name.  
 MenuName = User Defined MenuName.  
    
