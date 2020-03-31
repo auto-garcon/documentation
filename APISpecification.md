@@ -16,7 +16,6 @@ Various data structures and enums that will be used commonly in the API. Enums a
   
 OrderStatus = { OPEN, CLOSED }  
 MenuStatus = { DRAFT, ACTIVE }  
-OrderStatus = { COMPLETED, INPROGRESS }  
 Allergens = { MEAT, DAIRY, NUTS, GLUTEN, NUTS, SOY, OTHER }  
 Category = Any User Defined Category Name.  
 MenuName = User Defined MenuName.  
