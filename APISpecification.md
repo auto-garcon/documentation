@@ -89,8 +89,10 @@ The documentation follows this style:
        * firstName
        * lastName
        * email
+       * token : google auth token
      * Response: 
-       *  userID
+       * userID
+       * token 
 * /restaurant   
   * GET /restaurant/:restaurantid
     * Response:  
