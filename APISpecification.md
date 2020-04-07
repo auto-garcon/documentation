@@ -7,7 +7,7 @@ Naming of JSON feilds follows cammelCase convention.
 
 ## Connecting
 
-The base URL to send requests to is: [TBD].  
+The base URL to send requests to is: https://autogarcon.live.com/api.  
  
 The API accepts GET and POST requests. POST parameters are to be in JSON format. GET requests will be used for retreiving data (reading) and POST for creating, updating, and removing data.  
 
