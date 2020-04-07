@@ -25,6 +25,7 @@ MenuName = User Defined MenuName.
   * itemName : string 
   * description : string 
   * category : string
+  * price : float
   * allergens: Allergen[]
 
 
