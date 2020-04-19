@@ -27,6 +27,8 @@ MenuName = User Defined MenuName.
   * category : string
   * price : float
   * allergens: Allergen[]
+  * calories: int
+  * imagePath: string
 
 
 * _Menu_  
