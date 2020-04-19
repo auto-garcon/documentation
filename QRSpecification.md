@@ -8,7 +8,7 @@ The Auto-Garcon QR codes must accomplish three main task:
 
 ## Format
 The QR codes will hold the following format:
-* https://autogarcon.live/download?restaurant=restaurantID&table=tableID
+* https://autogarcon.live/download?restaurantId=restaurantID&tableId=tableID
 
 ## Generation 
 A QR-code generation API such as api.qrserver.com may be used by the Auto-Garcon Web Team to dynamically generate 
