@@ -67,6 +67,14 @@ The documentation follows this style:
    * Response JSON
   
 ---  
+The Endpoints that are currently up are as follows: 
+/users/signin
+/restaurant/add 
+/restaurant/:restaurantid
+/restaurant/:restaurantid/menu
+/restaurant/:restaurantid/add
+
+---
 
 
 * /users
@@ -86,15 +94,14 @@ The documentation follows this style:
    * GET /users/:userid/orders
       * ?range=int
       * Response: Order Structure
-   * POST /users/newuser 
+   * POST /users/signin 
      * Request: 
        * firstName
        * lastName
        * email
        * token : google auth token
      * Response: 
-       * userID
-       * token 
+       * userID (currently sent back just as a string, not json)
 * /restaurant   
   * GET /restaurant/:restaurantid
     * Response:  
