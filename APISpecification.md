@@ -155,7 +155,8 @@ The Endpoints that are currently up are as follows:
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/new
     * Request: 
       * customerID
-    * Response: HTTP status code
+    * Response: 
+      * HTTP status code
     * Note: Creates a new orderID to start building a new order for Alexas.
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/add
     * Request: 
@@ -164,8 +165,11 @@ The Endpoints that are currently up are as follows:
         * menuID : int
         * quantity : int
         * comments : string
+     * Response: 
+       * HTTP status code
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/submit
-   * Note: Just http status code response.  
+    * Response: 
+      * HTTP status code
   * POST /restaurant/:restaurantid/order/sumbit
     * Request:
       * customerID
