@@ -160,7 +160,7 @@ The Endpoints that are currently up are as follows:
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/add
     * Request: 
       * OrderItem: 
-        * menuItemID : int
+      	* menuItemID : int
 	* menuID : int
 	* quantity : int
 	* comments : string
@@ -171,7 +171,7 @@ The Endpoints that are currently up are as follows:
       * customerID
       * tableID
       * OrderItem[]
-        * menuItemID : int
+      	* menuItemID : int
 	* menuID : int
 	* quantity : int
 	* comments : string
