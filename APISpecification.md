@@ -1,9 +1,9 @@
 # Auto-Garcon REST API
 
-Written By Tyler Beverley, Sosa Edison. 
+Written By Tyler Beverley, Sosa Edison, and Tyler Reiland. 
 This is a living document that will act as the documentation for the API that will be used by Auto-Garcon. Be sure to check this document often as it will change as the API changes. There are several sections in this document, the first of which details how to send requests to the API. frequently used datastructures and details their inner components. The name of the data structure might be used as short hand further in the document. The next section details the various endpoints that are available. 
 
-Naming of JSON feilds follows cammelCase convention. 
+Naming of JSON feilds follows camelCase convention. 
 
 ## Connecting
 
@@ -45,14 +45,19 @@ MenuName = User Defined MenuName.
   * orderID : int 
   * tableID : int
   * customerID: int 
-  * orderTime : dateTime
+  * orderTime : Timestamp
   * status : OrderStatus 
   * chargeAmount : float 
   * resturantID : int 
-  * numMenuItems : int 
-  * OrderItem[] : 
-    * menuItemID : int  
-    * notes: text
+  * OrderItem[]
+    
+ * _OrderItem_
+  * orderItemID : int
+  * menuItemID : int
+  * quantity : int
+  * comments : string
+  * orderID : int;
+  * price : float
   
 ## Endpoints 
 
@@ -84,16 +89,24 @@ The Endpoints that are currently up are as follows:
       * firstName
       * lastName
    * GET /users/:userid/favorites
-     * ?resturantid=int 
      * Response: 
-       * numResturants
-       * resturants[] 
-         * resturantID
-         * resturantName
-         * favorites: Items[] 
+       * FavoriteMenu[]
+         * firstName : string
+         * lastName : string
+         * restaurantName : string
+         * menuID : int
+         * menuName : string
+         * startTime : int
+         * endTime : int
+         * restaurantID : int
+         * userID : int
+   * POST /users/:userid/favorites/restaurant/:restaurantid/add
+      * Response: HTTP Status Code
+   * POST /users/:userid/favorites/restaurant/:restaurantid/remove
+      * Response: HTTP Status Code
    * GET /users/:userid/orders
-      * ?range=int
       * Response: Order Structure
+      * NOTE: Gets all the user's orders within 24 hours
    * POST /users/signin 
      * Request: 
        * firstName
@@ -128,12 +141,10 @@ The Endpoints that are currently up are as follows:
     * Response: 
       * numTables
       * tableIDs: int[]
-  * POST /restaurant/:restaurantid/table/:tableID/sitdown
+  * GET /restaurant/:restaurantid/tables/:tablenumber/sitdown
     * Response: 
-      * restaurantID
-      * restaurantName
-      * tableNumber
-      * userID
+      * tableID
+     * NOTE: This is used for android to get the table ID before making an order
   * POST /restaurant/:restaurantid/menu/add
     * Request: 
       * menu : Menu
@@ -141,29 +152,30 @@ The Endpoints that are currently up are as follows:
       * menuID
   * POST /restaurant/:restaurantid/menu/remove
      * Request: menuID
-  * POST /restaurant/:restaurantid/order/new
+  * POST /restaurant/:restaurantid/tables/:tablenumber/order/new
     * Request: 
       * customerID
-      * tableID
-    * Response: orderID
-    * Note: Creates a new orderID to start building a new order. 
-  * POST /restaurant/:restaurantid/order/:orderid/add
+    * Response: HTTP status code
+    * Note: Creates a new orderID to start building a new order for Alexas.
+  * POST /restaurant/:restaurantid/tables/:tablenumber/order/add
     * Request: 
       * OrderItem: 
-        * menuItemID  
-        * notes: text  
-  * POST /restaurant/:restaurantid/order/:orderid/submit
+        * menuItemID : int
+			     * menuID : int,
+			     * quantity : int,
+			     * comments : string
+  * POST /restaurant/:restaurantid/tables/:tablenumber/order/submit
    * Note: Just http status code response.  
   * POST /restaurant/:restaurantid/order/sumbit
     * Request:
       * customerID
-      * chargeAmount
       * tableID
       * OrderItem[]
-        * menuItemID
-        * notes: text
+        * menuItemID : int
+			     * menuID : int,
+			     * quantity : int,
+			     * comments : string
     * Response: 
-      * orderID 
-  * POST /restaurant/:restaurantid/order/complete
-     * orderID
+      * HTTP status code
+  * POST /restaurant/:restaurantid/order/:orderid/complete
      * Note: mark an order as completed / ready for pickup. 
