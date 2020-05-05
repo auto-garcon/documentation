@@ -77,18 +77,18 @@ The Endpoints that are currently up are as follows:
 POST /users/signin  
 POST /restaurant/add  
 GET /restaurant/:restaurantid  
-GET /restaurant/:restaurantid/menu  
-POST /restaurant/:restaurantid/add
-GET /api/restaurant/:restaurantid/tables/:tableid/sitdown
-POST /api/restaurant/:restaurantid/order/submit
-POST /api/restaurant/:restaurantid/tables/:tableid/order/new 
-POST /api/restaurant/:restaurantid/tables/:tableid/order/add 
-POST /api/restaurant/:restaurantid/tables/:tableid/order/submit 
-GET /api/users/:userid/orders 
-POST /api/restaurant/:restaurantid/order/:orderid/complete 
-POST /api/users/:userid/favorites/restaurant/:restaurantid/add 
-POST /api/users/:userid/favorites/restaurant/:restaurantid/remove 
-GET /api/users/:userid/favorites
+GET /restaurant/:restaurantid/menu   
+POST /restaurant/:restaurantid/add  
+GET /api/restaurant/:restaurantid/tables/:tableid/sitdown  
+POST /api/restaurant/:restaurantid/order/submit  
+POST /api/restaurant/:restaurantid/tables/:tableid/order/new  
+POST /api/restaurant/:restaurantid/tables/:tableid/order/add  
+POST /api/restaurant/:restaurantid/tables/:tableid/order/submit  
+GET /api/users/:userid/orders  
+POST /api/restaurant/:restaurantid/order/:orderid/complete  
+POST /api/users/:userid/favorites/restaurant/:restaurantid/add  
+POST /api/users/:userid/favorites/restaurant/:restaurantid/remove  
+GET /api/users/:userid/favorites  
 
 ---
 
