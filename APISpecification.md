@@ -52,12 +52,12 @@ MenuName = User Defined MenuName.
   * OrderItem[]
     
  * _OrderItem_
-  * orderItemID : int
-  * menuItemID : int
-  * quantity : int
-  * comments : string
-  * orderID : int;
-  * price : float
+   * orderItemID : int
+   * menuItemID : int
+   * quantity : int
+   * comments : string
+   * orderID : int;
+   * price : float
   
 ## Endpoints 
 
@@ -161,9 +161,9 @@ The Endpoints that are currently up are as follows:
     * Request: 
       * OrderItem: 
         * menuItemID : int
-			     * menuID : int,
-			     * quantity : int,
-			     * comments : string
+	* menuID : int
+	* quantity : int
+	* comments : string
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/submit
    * Note: Just http status code response.  
   * POST /restaurant/:restaurantid/order/sumbit
@@ -172,9 +172,9 @@ The Endpoints that are currently up are as follows:
       * tableID
       * OrderItem[]
         * menuItemID : int
-			     * menuID : int,
-			     * quantity : int,
-			     * comments : string
+	* menuID : int
+	* quantity : int
+	* comments : string
     * Response: 
       * HTTP status code
   * POST /restaurant/:restaurantid/order/:orderid/complete
