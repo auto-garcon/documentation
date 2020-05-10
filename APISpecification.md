@@ -79,7 +79,6 @@ POST /restaurant/add
 GET /restaurant/:restaurantid  
 GET /restaurant/:restaurantid/menu   
 POST /restaurant/:restaurantid/add  
-GET /api/restaurant/:restaurantid/tables/:tableid/sitdown  
 POST /api/restaurant/:restaurantid/order/submit  
 POST /api/restaurant/:restaurantid/tables/:tableid/order/new  
 POST /api/restaurant/:restaurantid/tables/:tableid/order/add  
@@ -88,7 +87,15 @@ GET /api/users/:userid/orders
 POST /api/restaurant/:restaurantid/order/:orderid/complete  
 POST /api/users/:userid/favorites/restaurant/:restaurantid/add  
 POST /api/users/:userid/favorites/restaurant/:restaurantid/remove  
-GET /api/users/:userid/favorites  
+GET /api/users/:userid/favorites
+GET /api/restaurant/
+GET /api/restaurant/:restaurantid/menu/available
+GET /api/restaurant/:restaurantid/order
+GET /api/restaurant/:restaurantid/withmenus
+GET /api/restaurant/:restaurantid/tables/:tablenumber/users/:userid/sitdown
+POST /api/restaurant/:restaurantid/menu/:menuid/remove
+POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/remove
+POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
 
 ---
 
@@ -126,33 +133,42 @@ GET /api/users/:userid/favorites
        * token : google auth token
      * Response: 
        * userID (currently sent back just as a string, not json)
-* /restaurant   
+* /restaurant
+  * GET /restaurant
+    * Response:  
+      * Restaurant[] (All of the possible restaurants)
   * GET /restaurant/:restaurantid
     * Response:  
       * resturantID
       * resturantName
       * resturantAddress
-      * availableMenus[]
+  * GET /restaurant/:restaurantid/withmenus
+    * Response:  
+      * resturantID
+      * resturantName
+      * resturantAddress
+      * Menu[]
   * GET /restaurant/random
     * Response: 
       * restaurantID
       * restaurantName
       * restaurantAddress
       * availableMenus[]
-  * GET /restaurant/:restaurantid/orders
-    * ?status=[open, closed, all]
-    * ?userid=int
+  * GET /restaurant/:restaurantid/order
     * Response:
-      * Orders: OrderStructure[]
+      * Orders: OrderStructure[] (All orders at that restaurant)
   * GET /restaurant/:restaurantid/menu
   	* ?name=MenuName
     * Response: 
        * menu : Menu
+  * GET /restaurant/:restaurantid/menu/available
+    * Response: 
+       * menu : Menu[] (All of the menus that are available at the current time)
   * GET /restaurant/:restaurantid/tables
     * Response: 
       * numTables
       * tableIDs: int[]
-  * GET /restaurant/:restaurantid/tables/:tablenumber/sitdown
+  * GET /restaurant/:restaurantid/tables/:tablenumber/users/:userid/sitdown
     * Response: 
       * tableID
      * NOTE: This is used for android to get the table ID before making an order
@@ -161,11 +177,15 @@ GET /api/users/:userid/favorites
       * menu : Menu
     * Reponse: 
       * menuID
-  * POST /restaurant/:restaurantid/menu/remove
-     * Request: menuID
+  * POST /restaurant/:restaurantid/menu/:menuid/remove
+     * Response: HTTP status code
+  * POST /restaurant/:restaurantid/menu/:menuid/item/:itemid/remove
+     * Response: HTTP status code
+     * Note: Removes the menu item from only the specified menuid
+  * POST /restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
+     * Response: HTTP status code
+     * Note: Removes the menu item from all menus
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/new
-    * Request: 
-      * customerID
     * Response: 
       * HTTP status code
     * Note: Creates a new orderID to start building a new order for Alexas.
