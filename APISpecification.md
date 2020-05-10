@@ -87,14 +87,14 @@ GET /api/users/:userid/orders
 POST /api/restaurant/:restaurantid/order/:orderid/complete  
 POST /api/users/:userid/favorites/restaurant/:restaurantid/add  
 POST /api/users/:userid/favorites/restaurant/:restaurantid/remove  
-GET /api/users/:userid/favorites
-GET /api/restaurant/
-GET /api/restaurant/:restaurantid/menu/available
-GET /api/restaurant/:restaurantid/order
-GET /api/restaurant/:restaurantid/withmenus
-GET /api/restaurant/:restaurantid/tables/:tablenumber/users/:userid/sitdown
-POST /api/restaurant/:restaurantid/menu/:menuid/remove
-POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/remove
+GET /api/users/:userid/favorites  
+GET /api/restaurant/  
+GET /api/restaurant/:restaurantid/menu/available  
+GET /api/restaurant/:restaurantid/order  
+GET /api/restaurant/:restaurantid/withmenus  
+GET /api/restaurant/:restaurantid/tables/:tablenumber/users/:userid/sitdown  
+POST /api/restaurant/:restaurantid/menu/:menuid/remove  
+POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/remove  
 POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
 
 ---
