@@ -39,7 +39,7 @@ MenuName = User Defined MenuName.
   * menuStatus : int
   * menuName : string
   * restaurantID : int
-  * menuItems: MenuItems[]
+  * menuItems?: MenuItems[]
 
 * _Order_
   * orderID : int 
@@ -58,6 +58,19 @@ MenuName = User Defined MenuName.
    * comments : string
    * orderID : int;
    * price : float
+   
+ * _Restaurant_
+   * restaurantID : int
+   * restaurantName : string
+   * description : string
+   * address : string
+   * city : string
+   * zipCode : int
+   * country : string
+   * state : string
+   * primaryColor : string (ex: "#ffffff")
+   * secondaryColor : string (ex: "#ffffff")
+   * menus? : Menu[]
   
 ## Endpoints 
 
@@ -79,10 +92,6 @@ POST /restaurant/add
 GET /restaurant/:restaurantid  
 GET /restaurant/:restaurantid/menu   
 POST /restaurant/:restaurantid/add  
-<<<<<<< HEAD
-=======
-GET /api/restaurant/:restaurantid/tables/:tableid/sitdown  
->>>>>>> 69ecf62f21e0c994bc375429c5b46c790a976b34
 POST /api/restaurant/:restaurantid/order/submit  
 POST /api/restaurant/:restaurantid/tables/:tableid/order/new  
 POST /api/restaurant/:restaurantid/tables/:tableid/order/add  
@@ -92,7 +101,6 @@ POST /api/restaurant/:restaurantid/order/:orderid/complete
 POST /api/users/:userid/favorites/restaurant/:restaurantid/add  
 POST /api/users/:userid/favorites/restaurant/:restaurantid/remove  
 GET /api/users/:userid/favorites  
-<<<<<<< HEAD
 GET /api/restaurant/  
 GET /api/restaurant/:restaurantid/menu/available  
 GET /api/restaurant/:restaurantid/order  
@@ -101,8 +109,6 @@ GET /api/restaurant/:restaurantid/tables/:tablenumber/users/:userid/sitdown
 POST /api/restaurant/:restaurantid/menu/:menuid/remove  
 POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/remove  
 POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
-=======
->>>>>>> 69ecf62f21e0c994bc375429c5b46c790a976b34
 
 ---
 
@@ -115,16 +121,8 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
       * lastName
    * GET /users/:userid/favorites
      * Response: 
-       * FavoriteMenu[]
-         * firstName : string
-         * lastName : string
-         * restaurantName : string
-         * menuID : int
-         * menuName : string
-         * startTime : int
-         * endTime : int
-         * restaurantID : int
-         * userID : int
+       * Restaurant[]
+     * Note: Contains menus but not menu items. Will return all menus for the restaurant regardless of status.
    * POST /users/:userid/favorites/restaurant/:restaurantid/add
       * Response: HTTP Status Code
    * POST /users/:userid/favorites/restaurant/:restaurantid/remove
@@ -144,23 +142,15 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
   * GET /restaurant
     * Response:  
       * Restaurant[] (All of the possible restaurants)
+    * Note: Does not contain menus or menu items
   * GET /restaurant/:restaurantid
     * Response:  
-      * resturantID
-      * resturantName
-      * resturantAddress
+      * Restaurant
+    * Note: Does not contain menus or menu items
   * GET /restaurant/:restaurantid/withmenus
     * Response:  
-      * resturantID
-      * resturantName
-      * resturantAddress
-      * Menu[]
-  * GET /restaurant/random
-    * Response: 
-      * restaurantID
-      * restaurantName
-      * restaurantAddress
-      * availableMenus[]
+      * Restaurant
+    * Note: Contains menus and menu items, but only the ones available at that current moment.
   * GET /restaurant/:restaurantid/order
     * Response:
       * Orders: OrderStructure[] (All orders at that restaurant)
@@ -170,7 +160,7 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
        * menu : Menu
   * GET /restaurant/:restaurantid/menu/available
     * Response: 
-       * menu : Menu[] (All of the menus that are available at the current time)
+       * menu : Menu[] (Only the menus that are available at the current time)
   * GET /restaurant/:restaurantid/tables
     * Response: 
       * numTables
@@ -193,11 +183,8 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
      * Response: HTTP status code
      * Note: Removes the menu item from all menus
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/new
-<<<<<<< HEAD
-=======
     * Request: 
       * customerID : int
->>>>>>> 69ecf62f21e0c994bc375429c5b46c790a976b34
     * Response: 
       * customerID : int 
       * restaurantID : int 
