@@ -165,24 +165,28 @@ GET /api/users/:userid/favorites
      * Request: menuID
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/new
     * Request: 
-      * customerID
+      * customerID : int
     * Response: 
-      * HTTP status code
+      * customerID : int 
+      * restaurantID : int 
+      * tableNumber : int 
     * Note: Creates a new orderID to start building a new order for Alexas.
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/add
-    * Request: 
-      * OrderItem: 
+    * Request: OrderItem
         * menuItemID : int
         * menuID : int
         * quantity : int
         * comments : string
      * Response: 
        * HTTP status code
-  * POST /restaurant/:restaurantid/tables/:tablenumber/order/submit
+  * POST /restaurant/:restaurantid/tables/:tablenumber/order/remove
+    * Request: OrderItem
+      * menuItemID : int
+  * GET /restaurant/:restaurantid/tables/:tablenumber/order/submit
     * Response: 
       * HTTP status code
   * POST /restaurant/:restaurantid/order/sumbit
-    * Request:
+    * Request: Order
       * customerID
       * tableID
       * OrderItem[]
