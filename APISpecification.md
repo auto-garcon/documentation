@@ -79,6 +79,10 @@ POST /restaurant/add
 GET /restaurant/:restaurantid  
 GET /restaurant/:restaurantid/menu   
 POST /restaurant/:restaurantid/add  
+<<<<<<< HEAD
+=======
+GET /api/restaurant/:restaurantid/tables/:tableid/sitdown  
+>>>>>>> 69ecf62f21e0c994bc375429c5b46c790a976b34
 POST /api/restaurant/:restaurantid/order/submit  
 POST /api/restaurant/:restaurantid/tables/:tableid/order/new  
 POST /api/restaurant/:restaurantid/tables/:tableid/order/add  
@@ -88,6 +92,7 @@ POST /api/restaurant/:restaurantid/order/:orderid/complete
 POST /api/users/:userid/favorites/restaurant/:restaurantid/add  
 POST /api/users/:userid/favorites/restaurant/:restaurantid/remove  
 GET /api/users/:userid/favorites  
+<<<<<<< HEAD
 GET /api/restaurant/  
 GET /api/restaurant/:restaurantid/menu/available  
 GET /api/restaurant/:restaurantid/order  
@@ -96,6 +101,8 @@ GET /api/restaurant/:restaurantid/tables/:tablenumber/users/:userid/sitdown
 POST /api/restaurant/:restaurantid/menu/:menuid/remove  
 POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/remove  
 POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
+=======
+>>>>>>> 69ecf62f21e0c994bc375429c5b46c790a976b34
 
 ---
 
@@ -186,23 +193,32 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
      * Response: HTTP status code
      * Note: Removes the menu item from all menus
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/new
+<<<<<<< HEAD
+=======
+    * Request: 
+      * customerID : int
+>>>>>>> 69ecf62f21e0c994bc375429c5b46c790a976b34
     * Response: 
-      * HTTP status code
+      * customerID : int 
+      * restaurantID : int 
+      * tableNumber : int 
     * Note: Creates a new orderID to start building a new order for Alexas.
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/add
-    * Request: 
-      * OrderItem: 
+    * Request: OrderItem
         * menuItemID : int
         * menuID : int
         * quantity : int
         * comments : string
      * Response: 
        * HTTP status code
-  * POST /restaurant/:restaurantid/tables/:tablenumber/order/submit
+  * POST /restaurant/:restaurantid/tables/:tablenumber/order/remove
+    * Request: OrderItem
+      * menuItemID : int
+  * GET /restaurant/:restaurantid/tables/:tablenumber/order/submit
     * Response: 
       * HTTP status code
   * POST /restaurant/:restaurantid/order/sumbit
-    * Request:
+    * Request: Order
       * customerID
       * tableID
       * OrderItem[]
