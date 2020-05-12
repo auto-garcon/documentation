@@ -3,7 +3,7 @@
 Written By Tyler Beverley, Sosa Edison, and Tyler Reiland. 
 This is a living document that will act as the documentation for the API that will be used by Auto-Garcon. Be sure to check this document often as it will change as the API changes. There are several sections in this document, the first of which details how to send requests to the API. frequently used datastructures and details their inner components. The name of the data structure might be used as short hand further in the document. The next section details the various endpoints that are available. 
 
-Naming of JSON feilds follows camelCase convention. 
+Naming of JSON fields follows camelCase convention. 
 
 ## Connecting
 
@@ -197,7 +197,7 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
   * GET /restaurant/:restaurantid/tables/:tablenumber/order/submit
     * Response: 
       * HTTP status code
-  * POST /restaurant/:restaurantid/tables/:tablenumber/order/sumbitfull
+  * POST /restaurant/:restaurantid/tables/:tablenumber/order/submitfull
     * Request: Order
       * customerID
       * OrderItem[]
