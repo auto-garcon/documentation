@@ -91,11 +91,11 @@ POST /users/signin
 POST /restaurant/add  
 GET /restaurant/:restaurantid  
 GET /restaurant/:restaurantid/menu   
-POST /restaurant/:restaurantid/add  
-POST /api/restaurant/:restaurantid/order/submit  
+POST /restaurant/:restaurantid/menu/add  
+POST /api/restaurant/:restaurantid/tables/:tableid/order/submitfull
 POST /api/restaurant/:restaurantid/tables/:tableid/order/new  
 POST /api/restaurant/:restaurantid/tables/:tableid/order/add  
-POST /api/restaurant/:restaurantid/tables/:tableid/order/submit  
+GET /api/restaurant/:restaurantid/tables/:tableid/order/submit  
 GET /api/users/:userid/orders  
 POST /api/restaurant/:restaurantid/order/:orderid/complete  
 POST /api/users/:userid/favorites/restaurant/:restaurantid/add  
@@ -105,7 +105,6 @@ GET /api/restaurant/
 GET /api/restaurant/:restaurantid/menu/available  
 GET /api/restaurant/:restaurantid/order  
 GET /api/restaurant/:restaurantid/withmenus  
-GET /api/restaurant/:restaurantid/tables/:tablenumber/users/:userid/sitdown  
 POST /api/restaurant/:restaurantid/menu/:menuid/remove  
 POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/remove  
 POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
@@ -165,10 +164,6 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
     * Response: 
       * numTables
       * tableIDs: int[]
-  * GET /restaurant/:restaurantid/tables/:tablenumber/users/:userid/sitdown
-    * Response: 
-      * tableID
-     * NOTE: This is used for android to get the table ID before making an order
   * POST /restaurant/:restaurantid/menu/add
     * Request: 
       * menu : Menu
@@ -186,10 +181,8 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
     * Request: 
       * customerID : int
     * Response: 
-      * customerID : int 
-      * restaurantID : int 
-      * tableNumber : int 
-    * Note: Creates a new orderID to start building a new order for Alexas.
+      * HTTP status code
+    * Note: Creates the shell for an order in memory so the Alexa at that table can build on it
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/add
     * Request: OrderItem
         * menuItemID : int
@@ -204,10 +197,9 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
   * GET /restaurant/:restaurantid/tables/:tablenumber/order/submit
     * Response: 
       * HTTP status code
-  * POST /restaurant/:restaurantid/order/sumbit
+  * POST /restaurant/:restaurantid/tables/:tablenumber/order/sumbitfull
     * Request: Order
       * customerID
-      * tableID
       * OrderItem[]
         * menuItemID : int
         * menuID : int
