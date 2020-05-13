@@ -70,7 +70,8 @@ MenuName = User Defined MenuName.
    * state : string
    * primaryColor : string (ex: "#ffffff")
    * secondaryColor : string (ex: "#ffffff")
-   * menus? : Menu[]
+   * menus : Menu[]
+   * numTables : int 
   
 ## Endpoints 
 
@@ -111,7 +112,13 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
 
 ---
 
-
+* POST /image/:filename 
+   * Used for image upload.  
+* GET /images/:filename 
+   * get images that have been uploaded. 
+* /tables 
+  * request: 
+    * alexaID : string   
 * /users
    * GET /users/:userid 
     * Response: 
@@ -135,12 +142,14 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
        * lastName
        * email
        * token : google auth token
+       * restaurantID : assign the user to be a manager of the restaurant.   
      * Response: 
        * userID (currently sent back just as a string, not json)
 * /restaurant
   * GET /restaurant
     * Response:  
-      * Restaurant[] (All of the possible restaurants)
+      * numRestaurants: int 
+      * restaurants: Restaurant[] (All of the possible restaurants)
     * Note: Does not contain menus or menu items
   * GET /restaurant/:restaurantid
     * Response:  
@@ -177,6 +186,9 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
   * POST /restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
      * Response: HTTP status code
      * Note: Removes the menu item from all menus
+  * POST /restaurant/:restaurantid/tables/:tablenumber/register
+     * Request: 
+       * alexaID: string
   * POST /restaurant/:restaurantid/tables/:tablenumber/order/new
     * Request: 
       * customerID : int
@@ -207,5 +219,8 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
         * comments : string
     * Response: 
       * HTTP status code
+
   * POST /restaurant/:restaurantid/order/:orderid/complete
      * Note: mark an order as completed / ready for pickup. 
+
+
