@@ -95,9 +95,9 @@ All Endpoints listen here are implemented, and if you get a 404 please contact u
    * Used for image upload.  
 * GET /images/:filename 
    * get images that have been uploaded. 
-* POST /tables 
-  * request: 
-    * alexaID : string   
+* POST /tables
+  * ?alexaid=
+  * note: will change get in the future. 
 * /users
    * GET /users/:userid 
     * Response: 
