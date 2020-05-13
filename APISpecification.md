@@ -152,6 +152,10 @@ All Endpoints listen here are implemented, and if you get a 404 please contact u
     * Response: 
       * numTables
       * tableIDs: int[]
+  * GET /restaurant/:restaurantid/tables/create?numtables=x
+    * Response: 
+      * HTTP status code
+    * Note: Replace 'x' in the query parameter with the number of tables you want to add (1-100)
   * POST /restaurant/:restaurantid/menu/add
     * Request: 
       * menu : Menu
