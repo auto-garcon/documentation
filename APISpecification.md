@@ -86,29 +86,8 @@ The documentation follows this style:
    * Response JSON
   
 ---  
-The Endpoints that are currently up are as follows:   
-  
-POST /users/signin  
-POST /restaurant/add  
-GET /restaurant/:restaurantid  
-GET /restaurant/:restaurantid/menu   
-POST /restaurant/:restaurantid/menu/add  
-POST /api/restaurant/:restaurantid/tables/:tableid/order/submitfull
-POST /api/restaurant/:restaurantid/tables/:tableid/order/new  
-POST /api/restaurant/:restaurantid/tables/:tableid/order/add  
-GET /api/restaurant/:restaurantid/tables/:tableid/order/submit  
-GET /api/users/:userid/orders  
-POST /api/restaurant/:restaurantid/order/:orderid/complete  
-POST /api/users/:userid/favorites/restaurant/:restaurantid/add  
-POST /api/users/:userid/favorites/restaurant/:restaurantid/remove  
-GET /api/users/:userid/favorites  
-GET /api/restaurant/  
-GET /api/restaurant/:restaurantid/menu/available  
-GET /api/restaurant/:restaurantid/order  
-GET /api/restaurant/:restaurantid/withmenus  
-POST /api/restaurant/:restaurantid/menu/:menuid/remove  
-POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/remove  
-POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
+All Endpoints listen here are implemented, and if you get a 404 please contact us to let us know!
+
 
 ---
 
@@ -116,7 +95,7 @@ POST /api/restaurant/:restaurantid/menu/:menuid/item/:itemid/removefromall
    * Used for image upload.  
 * GET /images/:filename 
    * get images that have been uploaded. 
-* /tables 
+* POST /tables 
   * request: 
     * alexaID : string   
 * /users
