@@ -117,7 +117,9 @@ All Endpoints listen here are implemented, and if you get a 404 please contact u
       * NOTE: Gets all the user's orders within 24 hours
    * POST /users/signin 
      * Request: 
-       * email 
+       * firstName
+       * lastName
+       * email
      * Response: 
        * userID
        * firstName
