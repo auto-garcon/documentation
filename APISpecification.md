@@ -97,7 +97,6 @@ All Endpoints listen here are implemented, and if you get a 404 please contact u
    * get images that have been uploaded. 
 * GET /tables
   * ?alexaid=
-  * note: will change get in the future. 
 * /users
    * GET /users/:userid 
     * Response: 
