@@ -117,13 +117,19 @@ All Endpoints listen here are implemented, and if you get a 404 please contact u
       * NOTE: Gets all the user's orders within 24 hours
    * POST /users/signin 
      * Request: 
+       * email 
+     * Response: 
+       * userID
        * firstName
        * lastName
        * email
-       * token : google auth token
-       * restaurantID : assign the user to be a manager of the restaurant.   
+       * restaurantID (the restaurant the user manages, -1 means they don't manage any restaurants)
+   * POST /users/addmanager
+     * Request: 
+       * email
+       * restaurantID
      * Response: 
-       * userID (currently sent back just as a string, not json)
+       * HTTP status code
 * /restaurant
   * GET /restaurant
     * Response:  
