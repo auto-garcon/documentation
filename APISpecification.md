@@ -120,10 +120,18 @@ All Endpoints listen here are implemented, and if you get a 404 please contact u
        * firstName
        * lastName
        * email
-       * token : google auth token
-       * restaurantID : assign the user to be a manager of the restaurant.   
      * Response: 
-       * userID (currently sent back just as a string, not json)
+       * userID
+       * firstName
+       * lastName
+       * email
+       * restaurantID (the restaurant the user manages, -1 means they don't manage any restaurants)
+   * POST /users/addmanager
+     * Request: 
+       * email
+       * restaurantID
+     * Response: 
+       * HTTP status code
 * /restaurant
   * GET /restaurant
     * Response:  
@@ -152,6 +160,10 @@ All Endpoints listen here are implemented, and if you get a 404 please contact u
     * Response: 
       * numTables
       * tableIDs: int[]
+  * GET /restaurant/:restaurantid/tables/create?numtables=x
+    * Response: 
+      * HTTP status code
+    * Note: Replace 'x' in the query parameter with the number of tables you want to add (1-100)
   * POST /restaurant/:restaurantid/menu/add
     * Request: 
       * menu : Menu
