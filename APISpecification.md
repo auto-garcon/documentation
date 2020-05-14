@@ -54,6 +54,7 @@ MenuName = User Defined MenuName.
  * _OrderItem_
    * orderItemID : int
    * menuItemID : int
+   * itemName : string
    * quantity : int
    * comments : string
    * orderID : int;
