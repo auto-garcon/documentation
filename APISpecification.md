@@ -22,13 +22,13 @@ MenuName = User Defined MenuName.
    
 * _MenuItem_
   * itemID : int
-  * itemName : string 
+  * name : string 
   * description : string 
   * category : string
   * price : float
   * allergens: Allergen[]
   * calories: int
-  * imagePath: string
+  * imageURL: string
 
 
 * _Menu_  
@@ -39,7 +39,8 @@ MenuName = User Defined MenuName.
   * menuStatus : int
   * menuName : string
   * restaurantID : int
-  * menuItems?: MenuItems[]
+  * menuItems: MenuItems[]
+  * imageURL : string
 
 * _Order_
   * orderID : int 
@@ -73,6 +74,7 @@ MenuName = User Defined MenuName.
    * secondaryColor : string (ex: "#ffffff")
    * menus : Menu[]
    * numTables : int 
+   * imageURL: string
   
 ## Endpoints 
 
